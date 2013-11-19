@@ -29,10 +29,6 @@
                 <strong>Published:</strong>
                 <i><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></i>
             </li>
-            <li>
-                <strong>In:</strong>
-                <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
-            </li>
             {% if article.tags %}
             <li>
                 <strong>Tags:</strong>
@@ -40,10 +36,6 @@
                 {% endfor %}
             </li>
             {% endif %}
-            <li>
-                <strong>Written by:</strong>
-                <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
-            </li>
         </ul>
     </div>
 </div>
