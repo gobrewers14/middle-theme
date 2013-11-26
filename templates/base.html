@@ -9,10 +9,9 @@
         <title>{% block title %}{%endblock%} | {{ SITENAME }}</title>
 
         <link rel="alternate" type="application/atom+xml" title="{{SITENAME}} blog atom feed" href="/feeds/all.atom.xml" />
+        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         <link rel="stylesheet" href="/theme/css/normalize.min.css">
-        <link rel="stylesheet" href="/theme/css/fonts/proximanova.css">
-        <link rel="stylesheet" href="/theme/css/fonts/ss-social.css">
-        <link rel="stylesheet" href="/theme/css/fonts/ss-standard.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
 
@@ -22,26 +21,27 @@
     <body>
         <div class="header">
             <div class="navbar">
-                <a href="/" class="ss-icon" title="home">home</a>
-                <a href="/tags.html" class="ss-icon" title="tags">tag</a>
-                {% if ABOUTME_USERNAME is defined %}
-                    <a href="http://about.me/{{ABOUTME_USERNAME}}" class="ss-icon" title="about">user</a>
-                {% endif %}
+                <a href="/" title="home"><i class="fa fa-home"></i></a>
+                <a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a>
 
                 {% if TWITTER_USERNAME is defined %}
-                    <a href="http://twitter.com/{{TWITTER_USERNAME}}" class="ss-icon ss-social" title="on twitter">twitter</a>
+                    <a href="http://twitter.com/{{TWITTER_USERNAME}}" title="on twitter"><i class="fa fa-twitter"></i></a>
                 {% endif %}
 
                 {% if GITHUB_USERNAME is defined %}
-                <a href="http://github.com/{{GITHUB_USERNAME}}" class="ss-icon ss-social" title="on github">octocat</a>
+                    <a href="http://github.com/{{GITHUB_USERNAME}}" title="on github"><i class="fa fa-github"></i></a>
+                {% endif %}
+
+                {% if LINKEDIN_PROFILE is defined %}
+                    <a href="{{LINKEDIN_PROFILE}}" title="on linkedin"><i class="fa fa-linkedin"></i></a>
                 {% endif %}
 
                 {% if SHOW_FEED %}
-                <a href="/feeds/all.atom.xml" class="ss-icon ss-social" title="rss feed">rss</a>
+                    <a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a>
                 {% endif %}
 
                 {% if EMAIL_ADDRESS is defined %}
-                <a href="mailto:{{EMAIL_ADDRESS}}" class="ss-icon" title="email me">mail</a>
+                    <a href="mailto:{{EMAIL_ADDRESS}}" title="email me"><i class="fa fa-envelope"></i></a>
                 {% endif %}
             </div>
         </div>

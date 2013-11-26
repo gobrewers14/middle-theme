@@ -24,38 +24,26 @@
     </article>
 
     <div class="metadata">
-        <ul>
-            <li>
-                <strong>Published:</strong>
-                <i><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></i>
-            </li>
-            {% if article.tags %}
-            <li>
-                <strong>Tags:</strong>
-                {% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-                {% endfor %}
-            </li>
-            {% endif %}
-        </ul>
+        <p>
+            <strong>Published:</strong>
+            <i><time datetime="{{ article.date.isoformat() }}">
+                {{ article.date.strftime(METADATA_DATE_FORMAT) }}
+            </time></i>
+        </p>
+        {% if article.tags %}
+        <p>
+            <strong>Tags:</strong>
+            {% for tag in article.tags %}
+                <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+            {% endfor %}
+        </p>
+
+       {% endif %}
     </div>
 </div>
 {% endblock %}
 
 {% block footer %}
-    <div class="post social container">
-
-        <div class="span4">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-via="{{TWITTER_USERNAME}}">Tweet</a>
-        </div>
-
-        <div class="span4">
-            <div class="g-plusone" data-size="medium" data-annotation="bubble"></div>
-        </div>
-
-        <div class="span4 hn">
-            <span id="hnews"></span>
-        </div>
-    </div>
 
     {% if DISQUS_USERNAME is defined %}
     <div id="disqus_thread" class="comments container"></div>
@@ -78,5 +66,4 @@
 
     {% endif %}
 
-<script src="/theme/js/social.js"></script>
 {% endblock %}
