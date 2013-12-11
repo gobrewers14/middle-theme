@@ -8,10 +8,11 @@
         <meta name="viewport" content="width=device-width">
         <title>{% block title %}{%endblock%} | {{ SITENAME }}</title>
 
+
         <link rel="alternate" type="application/atom+xml" title="{{SITENAME}} blog atom feed" href="/feeds/all.atom.xml" />
-        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700' rel='stylesheet' type='text/css'>
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <link rel="stylesheet" href="/theme/css/normalize.min.css">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
         <link rel="stylesheet" href="/theme/css/pygments.css">
         <link rel="stylesheet" href="/theme/css/main.css">
 
@@ -49,10 +50,6 @@
         <div id="content">
             {% block content %}{% endblock %}
         </div>
-
-        <footer>
-            {% block footer %}{% endblock %}
-        </footer>
 
         {% include 'analytics.html' %}
     </body>
