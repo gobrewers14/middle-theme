@@ -24,22 +24,19 @@
     </article>
 
     <div class="metadata">
-        <p>
-            <strong>Published:</strong>
-            <i><time datetime="{{ article.date.isoformat() }}">
+        <aside>
+            <time datetime="{{ article.date.isoformat() }}">
                 {{ article.date.strftime(METADATA_DATE_FORMAT) }}
-            </time></i>
-        </p>
-        {% if article.tags %}
-        <p>
-            <strong>Tags:</strong>
+            </time>
+        </aside>
+            {% if article.tags %}
             {% for tag in article.tags %}
                 <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
             {% endfor %}
+            {% endif %}
+        <a id="comments-button" href="#disqus_thread"><i class="fa fa-comment"></i> Comments</a>
         </p>
 
-       {% endif %}
-        <button id="comments-button" class="pure-button pure-button-primary"><i class="fa fa-comment"></i> Comments</button>
     </div>
 
 </div>
@@ -79,6 +76,8 @@
         dsq.src = '//' + App.disqus_shortname + '.disqus.com/embed.js';
 
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+        window.scrollTo(0, dsq.offsetTop - 200);
     };
 
 })();

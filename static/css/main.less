@@ -1,8 +1,3 @@
-.drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
-  -webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
-  -moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
-  box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
-}
 
 body {
     font-family: 'Merriweather', Georgia, serif;
@@ -206,12 +201,25 @@ ul.double-list {
 
     .metadata {
         max-width: 750px;
+        color: #636363;
         margin: 50px auto 50px;
         padding: 20px 0;
-        border-top: 1px solid #AAA;
+        border-top: 1px solid #ccc;
+        font-family: sans-serif;
+        font-size: 14px;
 
-        p {
-            font-size: 14px;
+        aside {
+            float: left;
+        }
+
+        aside:after {
+            padding-left: .5em;
+            padding-right: .5em;
+            content: "/";
+        }
+
+        #comments-button {
+            float: right;
         }
     }
 
