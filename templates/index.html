@@ -40,7 +40,7 @@
       <li>
         <a href="{{ SITEURL }}/{{ article.url }}">
           <h2>{{ article.title }}</h2>
-          <span>[{{ article.date.strftime(HOMEPAGE_DATE_FORMAT) }}]</span>
+          <span>{{ article.date.strftime(HOMEPAGE_DATE_FORMAT) }}</span>
         </a>
       </li>
     {% endfor %}

@@ -5,12 +5,12 @@
 <div class="index">
     <p class="intro">Tags</p>
 
-    <ul class="double-list">
+    <ul class="double-list" style="width: 350px;">
     {% for tag, articles in tags %}
         <li>
             <a href="{{ tag.url }}">
             <h2>{{ tag }}</h2>
-            <span>[ {{ articles | length }} ]</span>
+            <span>{{ articles | length }}</span>
             </a>
         </li>
     {% endfor %}
