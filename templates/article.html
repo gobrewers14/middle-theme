@@ -28,18 +28,21 @@
         <div class="left">
             <ul>
                 <li>
-                    <time datetime="{{ article.date.isoformat() }}">
-                        {{ article.date.strftime(METADATA_DATE_FORMAT) }}
-                    </time>
+                    <strong>Published: </strong>
+                    <i>
+                        <time datetime="{{ article.date.isoformat() }}">
+                            {{ article.date.strftime(METADATA_DATE_FORMAT) }}
+                        </time>
+                    </i>
                 </li>
+                {% if article.tags %}
                 <li>
-                    {% if article.tags %}
-                    Tags:
+                    <strong>Tags: </strong>
                     {% for tag in article.tags %}
                         <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
                     {% endfor %}
-                    {% endif %}
                 </li>
+                {% endif %}
                 <li>
                     <a id="comments-button" href="#disqus_thread">Show/read comments</a>
                 </li>
