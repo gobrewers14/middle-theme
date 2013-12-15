@@ -7,17 +7,43 @@
         {{HOMEPAGE_INTRO}}
     </p>
 
-    <div>
-        <ul class="double-list">
-        {% for article in articles %}
-          <li>
-            <a href="{{ SITEURL }}/{{ article.url }}">
-              <h2>{{ article.title }}</h2>
-              <span>[ {{ article.date.strftime(HOMEPAGE_DATE_FORMAT) }} ]</span>
-            </a>
-          </li>
-        {% endfor %}
-        </ul>
+    <div class="links">
+      {% if GITHUB_USERNAME is defined %}
+        <div class="link">
+          <a href="http://github.com/{{GITHUB_USERNAME}}" title="on github"><i class="fa fa-github"></i></a>
+        </div>
+      {% endif %}
+      {% if TWITTER_USERNAME is defined %}
+        <div class="link">
+          <a href="http://twitter.com/{{TWITTER_USERNAME}}" title="on twitter"><i class="fa fa-twitter"></i></a>
+        </div>
+      {% endif %}
+      {% if LINKEDIN_PROFILE is defined %}
+        <div class="link">
+          <a href="{{LINKEDIN_PROFILE}}" title="on linkedin"><i class="fa fa-linkedin"></i></a>
+        </div>
+      {% endif %}
+      {% if SHOW_TAGS %}
+        <div class="link">
+          <a href="/tags.html" title="tags"><i class="fa fa-tag"></i></a>
+        </div>
+      {% endif %}
+      {% if SHOW_FEED %}
+        <div class="link">
+          <a href="/feeds/all.atom.xml" title="feed"><i class="fa fa-rss"></i></a>
+        </div>
+      {% endif %}
     </div>
+
+    <ul class="double-list">
+    {% for article in articles %}
+      <li>
+        <a href="{{ SITEURL }}/{{ article.url }}">
+          <h2>{{ article.title }}</h2>
+          <span>[{{ article.date.strftime(HOMEPAGE_DATE_FORMAT) }}]</span>
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
 </div>
 {% endblock %}

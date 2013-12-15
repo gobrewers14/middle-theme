@@ -24,18 +24,34 @@
     </article>
 
     <div class="metadata">
-        <aside>
-            <time datetime="{{ article.date.isoformat() }}">
-                {{ article.date.strftime(METADATA_DATE_FORMAT) }}
-            </time>
-        </aside>
-            {% if article.tags %}
-            {% for tag in article.tags %}
-                <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-            {% endfor %}
-            {% endif %}
-        <a id="comments-button" href="#disqus_thread"><i class="fa fa-comment"></i> Comments</a>
-        </p>
+
+        <div class="left">
+            <ul>
+                <li>
+                    <time datetime="{{ article.date.isoformat() }}">
+                        {{ article.date.strftime(METADATA_DATE_FORMAT) }}
+                    </time>
+                </li>
+                <li>
+                    {% if article.tags %}
+                    Tags:
+                    {% for tag in article.tags %}
+                        <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+                    {% endfor %}
+                    {% endif %}
+                </li>
+                <li>
+                    <a id="comments-button" href="#disqus_thread">Show/read comments</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/tags">All tags</a></li>
+            </ul>
+        </div>
 
     </div>
 
