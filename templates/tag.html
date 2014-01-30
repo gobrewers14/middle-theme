@@ -1,16 +1,17 @@
 {% extends "base.html" %}
-
+{% block title %}Tag: {{ tag }}{% endblock %}
 
 {% block content %}
-<div class="index">
-    <p class="intro">Tag: {{ tag }}</p>
+<div class="container list">
+    {% include 'nav.html' %}
+    <h1>Tag: {{ tag }}</h1>
 
     <ul class="double-list">
-    {% for article in dates %}
+    {% for article in articles %}
         <li>
             <a href='/{{ article.url }}'>
                 <h2>{{ article.title }}</h2>
-                <span>[ {{ article.date.strftime(HOMEPAGE_DATE_FORMAT) }} ]</span>
+                <span>{{ article.date.strftime('%d.%m.%Y') }}</span>
             </a>
         </li>
     {% endfor %}
