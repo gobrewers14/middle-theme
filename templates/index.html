@@ -9,7 +9,7 @@
   <article>
     <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
 
-    {{ article.summary }}
+    {{ article.summary | striptags }}
 
     <div class="meta">
       <div class="left">
