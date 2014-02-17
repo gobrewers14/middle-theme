@@ -7,22 +7,24 @@
 
   {% for article in articles_page.object_list %}
   <article>
-    <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+    <header>
+      <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+      <time datetime="" title="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
+    </header>
 
-    {{ article.summary | striptags }}
+    <p>{{ article.summary }}</p>
 
-    <div class="meta">
-      <div class="left">
-        <time datetime="" title="{{ article.date.isoformat() }}" pubdate><i class="fa fa-calendar-o"></i> {{ article.locale_date }}</time>
+    <div class="meta row">
+      <div class="col-md-9">
 
         <div>
           {% for tag in article.tags %}
-            <a href="{{ SITEURL }}/{{ tag.url }}" class="tag"><i class="fa fa-tag"></i> {{ tag }}</a>
+            <a href="{{ SITEURL }}/{{ tag.url }}" class="tag">{{ tag }}</a>
           {% endfor %}
         </div>
       </div>
 
-      <div class="right">
+      <div class="col-md-3">
         <a href="{{ SITEURL }}/{{ article.url }}" class="read-more">Read more <i class="fa fa-long-arrow-right"></i></a>
       </div>
     </div>

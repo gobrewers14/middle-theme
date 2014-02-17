@@ -1,26 +1,39 @@
-body, h1, h2, h3, h4, h5, h6 {
-    font-family: 'Merriweather', Georgia, serif;
+@text-color: #222;
+@link-color: #4691f5;
+
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    font-size: 16px;
+    line-height: 1.6em;
+    color: @text-color;
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
-    color: #0a8bc4;
+    color: @link-color;
+    text-decoration: none;
+}
+
+a:hover {
+    color: @link-color;
+    text-decoration: none;
 }
 
 a.tag {
-    font-family: sans-serif;
     margin: 0 5px 0 0;
     padding: 4px 8px;
     text-transform: uppercase;
+    display: inline-block;
     color: #999;
     font-size: .8em;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    display: inline-block;
     line-height: 1em;
+    border: 1px solid #ddd;
 }
 
 a.tag:hover {
-    text-decoration: none;
     color: #fff;
     border-color: #666;
     background: #666;
@@ -29,113 +42,97 @@ a.tag:hover {
 a.read-more {
     font-family: sans-serif;
     font-size: .8em;
-    float: right;
     text-transform: uppercase;
     padding: 4px 8px;
-    color: #0a8bc4;
+    color: @link-color;
     border: 1px solid #0a8bc4;
-    border-radius: 3px;
 }
 
 a.read-more:hover {
     color: #FFF;
-    background-color: #0a8bc4;
-    border-color: #0a8bc4;
-    text-decoration: none;
+    background-color: @link-color;
+    border-color: @link-color;
 }
 
-.header {
-    max-width: 620px;
+nav.navbar {
+    border-radius: 0px; // Bootstrap reset
+    max-width: 700px;
     border-bottom: 1px solid #e5e5e5;
-    margin-bottom: 40px;
-    line-height: 1.428571429;
 
     h3.brand {
         margin: 14px 0 8px 0;
 
         a {
-            color: #333;
+            color: @text-color;
         }
 
         a:hover {
-            color: #333;
-            text-decoration: underline;
+            color: @link-color;
         }
     }
 
-
-    .nav {
+    .navbar-link {
         font-size: 20px;
+        color: @text-color;
+        margin-left: 10px;
+    }
 
-        a {
-            color: #333;
-        }
+    .navbar-link:hover {
+        color: @link-color;
     }
 }
 
 .index {
-    max-width: 620px;
+    max-width: 700px;
 
     article {
-        line-height: 1.8em;
+        margin: 40px 0 40px;
 
-        h2 {
-            font-size: 2em;
-            font-weight: 700;
-            line-height: 1.3em;
+        header {
+            margin-bottom: 20px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
 
-            a {
-                font-family: 'Merriweather', Georgia, serif;
-                color: #000;
+            h2 {
+                font-size: 2.2em;
+                margin-bottom: 0;
+
+                a {
+                    color: @text-color;
+                }
+
+                a:hover {
+                    color: @link-color;
+                }
             }
 
-            a:hover {
-                color: #0a8bc4;
-                text-decoration: none;
-            }
-        }
-    }
-
-    .meta {
-        font-family: sans-serif;
-        font-size: 0.8em;
-        display: -webkit-flex;
-
-        time {
-            margin: 0 10px 0 0;
-            padding: 4px 8px 4px 2px;
-            color: #999;
-
-            a {
+            time {
                 color: #999;
+                font-size: 0.8em;
+                float: right;
             }
-            a:hover {
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        .meta {
+            font-size: 0.8em;
+
+            time {
+                margin: 0 10px 0 0;
+                padding: 4px 8px 4px 2px;
                 color: #999;
-                text-decoration: underline;
-            }
-        }
-
-        .left {
-            width: 85%;
-            display: inline-block;
-        }
-
-        .right {
-            width: 15%;
-            display: inline-block;
-            text-align: right;
-
-            a {
-                margin-top: 15px;
             }
         }
     }
 
     .separator {
-        font-size: 2.5em;
+        padding: 40px 0 40px 0;
         text-align: center;
-        color: #BBB;
-        margin: 20px 0 50px 0;
+        font-size: 35px;
+        color: #DDD;
         -webkit-font-smoothing: none;
     }
 
@@ -152,11 +149,20 @@ a.read-more:hover {
     font-weight: 300;
     line-height: 1.8;
 
-    h1 {
-        font-family: 'Merriweather', Georgia, serif;
-        text-align: center;
-        font-size: 2.55em;
-        font-weight: 300;
+    article {
+        h1 {
+            text-align: center;
+            font-size: 2.55em;
+            font-weight: 300;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+        }
     }
 
     .metadata {
@@ -166,26 +172,8 @@ a.read-more:hover {
         font-size: 0.85em;
         border-top: 1px solid #ccc;
         display: -webkit-flex;
-
-        .left {
-            width: 75%;
-            display: inline-block;
-        }
-
-        .right {
-            width: 25%;
-            display: inline-block;
-            text-align: right;
-
-            a {
-                margin-top: 15px;
-            }
-        }
     }
 
-    img {
-        max-width: 100%;
-    }
 
     #disqus_thread {
         max-width: 100%;
