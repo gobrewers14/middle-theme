@@ -9,7 +9,6 @@ body {
     font-size: 16px;
     line-height: 1.6em;
     color: @text-color;
-    -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -20,38 +19,6 @@ a {
 a:hover {
     color: @link-color;
     text-decoration: none;
-}
-
-a.tag {
-    margin: 0 5px 0 0;
-    padding: 4px 8px;
-    text-transform: uppercase;
-    display: inline-block;
-    color: #999;
-    font-size: .8em;
-    line-height: 1em;
-    border: 1px solid #ddd;
-}
-
-a.tag:hover {
-    color: #fff;
-    border-color: #666;
-    background: #666;
-}
-
-a.read-more {
-    font-family: sans-serif;
-    font-size: .8em;
-    text-transform: uppercase;
-    padding: 4px 8px;
-    color: @link-color;
-    border: 1px solid #0a8bc4;
-}
-
-a.read-more:hover {
-    color: #FFF;
-    background-color: @link-color;
-    border-color: @link-color;
 }
 
 nav.navbar {
@@ -82,6 +49,77 @@ nav.navbar {
     }
 }
 
+article {
+
+    header {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+
+        h1 {
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-size: 24px;
+            color: #000;
+        }
+
+        time {
+            color: #9E9E9E;
+            font-size: 0.85em;
+        }
+    }
+
+    p {
+        margin-bottom: 25px;
+        line-height: 1.6em;
+    }
+
+    pre {
+        border-radius: 0px;
+    }
+
+    code, pre, pre span {
+        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    }
+
+    .meta {
+        font-size: 11px;
+        margin-bottom: 60px;
+
+        div {
+            margin-bottom: 20px;
+        }
+
+        a.tag {
+            margin: 0 10px 0 0;
+            padding: 6px 12px;
+            text-transform: uppercase;
+            font-size: 11px;
+            color: #c7c7cc;
+            border: 1px solid #c7c7cc;
+        }
+
+        a.tag:hover {
+            background: #c7c7cc;
+            color: #FFF
+        }
+
+        a.read_more, a.comments_btn {
+            font-size: 14px;
+            font-weight: 800;
+            padding: 10px 20px;
+            color: #4691f5;
+            background: #FFF;
+            border: 1px solid #4691f5;
+        }
+
+        a.read_more:hover, a.comments_btn:hover {
+            color: #FFF;
+            background: #4691f5;
+        }
+    }
+}
+
 .index {
     max-width: 700px;
 
@@ -89,27 +127,16 @@ nav.navbar {
         margin: 40px 0 40px;
 
         header {
-            margin-bottom: 20px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #eee;
-
-            h2 {
-                font-size: 2.2em;
-                margin-bottom: 0;
-
+            h2{
                 a {
-                    color: @text-color;
+                    margin-bottom: 15px;
+                    font-weight: 700;
+                    font-size: 24px;
+                    color: #000;
                 }
-
                 a:hover {
                     color: @link-color;
                 }
-            }
-
-            time {
-                color: #999;
-                font-size: 0.8em;
-                float: right;
             }
         }
 
@@ -119,20 +146,14 @@ nav.navbar {
 
         .meta {
             font-size: 0.8em;
-
-            time {
-                margin: 0 10px 0 0;
-                padding: 4px 8px 4px 2px;
-                color: #999;
-            }
         }
     }
 
     .separator {
-        padding: 40px 0 40px 0;
+        padding: 50px 0;
         text-align: center;
         font-size: 35px;
-        color: #DDD;
+        color: #EEE;
         -webkit-font-smoothing: none;
     }
 
@@ -144,36 +165,7 @@ nav.navbar {
 }
 
 .post {
-    max-width: 780px;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.8;
-
-    article {
-        h1 {
-            text-align: center;
-            font-size: 2.55em;
-            font-weight: 300;
-        }
-
-        p a:hover {
-            text-decoration: underline;
-        }
-
-        img {
-            max-width: 100%;
-        }
-    }
-
-    .metadata {
-        margin: 50px auto 50px;
-        padding: 20px 0;
-        font-family: sans-serif;
-        font-size: 0.85em;
-        border-top: 1px solid #ccc;
-        display: -webkit-flex;
-    }
-
+    max-width: 700px;
 
     #disqus_thread {
         max-width: 100%;
