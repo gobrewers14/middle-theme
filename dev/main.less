@@ -1,14 +1,14 @@
 @text-color: #222;
 @link-color: #4691f5;
 
-* {
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
 body {
-    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    font: 15px 'Source Sans Pro', sans-serif;
     line-height: 1.6em;
     color: @text-color;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -21,36 +21,44 @@ a:hover {
     text-decoration: none;
 }
 
-nav.navbar {
-    border-radius: 0px; // Bootstrap reset
-    max-width: 700px;
-    border-bottom: 1px solid #e5e5e5;
+.main-header {
+    display: inherit;
+    padding: 125px 0;
+    overflow: hidden;
+    text-align: center;
+    background: no-repeat center center #fff;
+    background-size: 100%;
+    position: relative;
 
-    h3.brand {
-        margin: 14px 0 8px 0;
+    nav {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 100%;
 
-        a {
-            color: @text-color;
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
         }
 
-        a:hover {
-            color: @link-color;
+        li {
+            list-style-type: none;
+            display: inline;
+            margin: 0 10px;
+
+            a, a:hover {
+                font-size: 13px;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, 0.9);
+            }
         }
-    }
-
-    .navbar-link {
-        font-size: 20px;
-        color: @text-color;
-        margin-left: 10px;
-    }
-
-    .navbar-link:hover {
-        color: @link-color;
     }
 }
 
-article {
 
+article {
     header {
         margin-bottom: 20px;
         padding-bottom: 20px;
@@ -70,22 +78,24 @@ article {
     }
 
     p {
+        font-size: 16px;
         margin-bottom: 25px;
         line-height: 1.6em;
     }
 
     .meta {
         font-size: 11px;
-        margin-bottom: 60px;
 
         div {
             margin-bottom: 20px;
         }
 
         a.tag {
-            margin: 0 10px 0 0;
-            padding: 6px 12px;
+            margin: 0 10px 10px 0;
+            display: inline-block;
+            padding: 1px 12px;
             text-transform: uppercase;
+            font-weight: 800;
             font-size: 11px;
             color: #c7c7cc;
             border: 1px solid #c7c7cc;

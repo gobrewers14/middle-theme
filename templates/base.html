@@ -20,6 +20,29 @@
     </head>
 
     <body>
+        <header class="main-header" style="background: url('{% if CUSTOM_HEADER_BG %}{{ CUSTOM_HEADER_BG }}{% else %}{{ DEFAUT_HEADER_BG }}{% endif %}') no-repeat center center #DDD; background-size: 100%;">
+        <nav>
+            <div class="container">
+            <ul>
+                <li><a href="/" title="Home">Home</a></li>
+                <!-- <li><a href="/about.html" title="More information about this site">About</a></li> -->
+                {% if GITHUB_USERNAME %}
+                    <li><a href="http://github.com/{{ GITHUB_USERNAME }}" title="{{ GITHUB_USERNAME }}'s Github" rel="me">Github</a></li>
+                {% endif %}
+                {% if TWITTER_USERNAME %}
+                    <li><a href="http://twitter.com/{{ TWITTER_USERNAME }}" title="{{ TWITTER_USERNAME }} Twitter" rel="me">Twitter</a></li>
+                {% endif %}
+                {% if SHOW_ARCHIVES %}
+                    <li><a href="/archives.html" title="Archive">Archives</a></li>
+                {% endif %}
+                {% if SHOW_FEED %}
+                    <li><a href="/feeds/all.atom.xml" title="danielfrg.github.io RSS feed" rel="me">RSS</a></li>
+                {% endif %}
+            </ul>
+            </div>
+        </nav>
+        </header>
+
         {% block content %}{% endblock %}
 
         {% include 'analytics.html' %}

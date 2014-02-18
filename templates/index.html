@@ -3,7 +3,6 @@
 
 {% block content %}
 <div class="container index">
-  {% include 'nav.html' %}
 
   {% for article in articles_page.object_list %}
   <article>
@@ -13,12 +12,12 @@
     </header>
 
     <div class="article_content">
-      <p>{{ article.summary }}</p>
+      {{ article.summary }}
     </div>
 
     <div class="meta">
       <div>
-        <a href="{{ SITEURL }}/{{ article.url }}" class="read_more">Read more <i class="fa fa-long-arrow-right"></i></a>
+        <a href="{{ SITEURL }}/{{ article.url }}" class="read_more">Read more &#8594;</a>
       </div>
 
       <div>
@@ -33,14 +32,19 @@
   <div class="separator">&equiv;</div>
   {% endfor %}
 
-  <div class="pagination">
-    {% if articles_page.has_next() %}
-      <a class="prev" href="{{ SITEURL }}/{{ articles_next_page.url }}">&larr; Older</a>
-    {% endif %}
+  <nav class="pagination row">
+    <div class="col-md-6 left">
+      {% if articles_page.has_next() %}
+        <a class="prev" href="{{ SITEURL }}/{{ articles_next_page.url }}">&#8592; Past</a>
+      {% endif %}
+    </div>
+    <div class="col-md-6 right">
+      {% if articles_page.has_previous() %}
+        <a class="next" href="{{ SITEURL }}/{{ articles_previous_page.url }}">Future &#8594;</a>
+      {% endif %}
+    </div>
+  </nav>
 
-    {% if articles_page.has_previous() %}
-      <a class="next" href="{{ SITEURL }}/{{ articles_previous_page.url }}">Newer &rarr;</a>
-    {% endif %}
   </div>
 
 </div>

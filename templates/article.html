@@ -12,7 +12,6 @@
 
 {% block content %}
 <div class="container post">
-  {% include 'nav.html' %}
 
     <article>
         <header>
@@ -48,19 +47,19 @@
     App.commentsButton = document.getElementById('comments-button');
 
     App.commentsButton.onclick = function () {
-        // Remove button on click
+        // Remove button action on click
         App.commentsButton.onclick = function () {
         }
 
         // Create comments container
         App.disqusContainer = document.createElement('div');
         App.disqusContainer.setAttribute('id', 'disqus_thread');
-        App.disqusContainer.setAttribute('class', 'container');
+        // App.disqusContainer.setAttribute('class', 'container');
 
-        // Append container to body
+        // Append container to body or div
+        // document.body.appendChild( App.disqusContainer );
         var container = document.getElementsByClassName('container post')[0];
         container.appendChild(App.disqusContainer);
-        // document.body.appendChild( App.disqusContainer );
 
         // Your Disqus shortname
         App.disqus_shortname = '{{ DISQUS_USERNAME }}';
