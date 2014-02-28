@@ -25,7 +25,10 @@
             <div class="container">
             <ul>
                 <li><a href="/" title="Home">Home</a></li>
-                <!-- <li><a href="/about.html" title="More information about this site">About</a></li> -->
+
+                {% if ABOUT_PAGE %}
+                    <li><a href="{{ ABOUT_PAGE }}" title="About">About</a></li>
+                {% endif %}
                 {% if GITHUB_USERNAME %}
                     <li><a href="http://github.com/{{ GITHUB_USERNAME }}" title="{{ GITHUB_USERNAME }}'s Github" rel="me">Github</a></li>
                 {% endif %}
