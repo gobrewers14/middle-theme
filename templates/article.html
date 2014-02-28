@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title }}{% endblock %}
+{% block headerimg %}{% if article.headerimg %}{{ article.headerimg }}{% else %}{{ DEFAUT_HEADER_BG }}{% endif %}{% endblock %}
 
 {% block extra_head %}
 {% if 'angular' in article.include %}
@@ -78,5 +79,4 @@
 })();
 </script>
 
-</div>
 {% endblock %}
